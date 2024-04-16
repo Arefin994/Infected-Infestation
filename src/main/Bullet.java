@@ -12,7 +12,7 @@ public class Bullet {
         this.x = x;
         this.y = y;
         this.angle = angle;
-        this.speed = 5; // Adjust bullet speed as needed
+        this.speed = 10; // Adjust bullet speed as needed
     }
 
     public void update() {
@@ -23,7 +23,18 @@ public class Bullet {
     }
 
     public void draw(Graphics g) {
-        g.setColor(Color.BLUE);
-        g.fillOval(x, y, 5, 5); // Adjust bullet size as needed
+        Graphics2D g2d = (Graphics2D) g.create();
+        g2d.setColor(Color.BLUE);
+        g2d.rotate(Math.toRadians(angle), x, y);
+        g2d.fillRect(x - 2, y - 2, 5, 5); // Adjust bullet size as needed
+        g2d.dispose();
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 }

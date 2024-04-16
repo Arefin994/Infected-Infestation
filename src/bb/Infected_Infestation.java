@@ -1,8 +1,9 @@
 package bb;
 
-import main.GamePanel;
-
 import java.awt.*;
+import java.awt.event.*;
+
+import main.GamePanel;
 
 public class Infected_Infestation {
     public static void main(String[] args) {
@@ -13,6 +14,11 @@ public class Infected_Infestation {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
 
         // Game loop
         while (true) {
